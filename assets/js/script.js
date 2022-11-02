@@ -26,7 +26,6 @@ timeofday.forEach(function(element){
 function timeTracker() {
     //Obtain current hour of the day using Moment
     var currentTime = moment().hour();
-    console.log(currentTime);
     //Loop through each time block and change class based on current time
     $(".time-block").each(function () {
         //Get numeric values from ID of timeblock
@@ -38,8 +37,6 @@ function timeTracker() {
         else {
             var timefromID = $(this).attr("id").match(/-?\d+\.?\d*/)[0];
         }
-        console.log(timefromID);
-
         //Conditional class formatting based on current time
         if (timefromID < currentTime) {
             $(this).removeClass("future");
