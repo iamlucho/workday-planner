@@ -26,17 +26,27 @@ timeofday.forEach(function(element){
 function timeTracker() {
     //Obtain current hour of the day using Moment
     var currentTime = moment().hour();
+    console.log(currentTime);
     //Loop through each time block and change class based on current time
     $(".time-block").each(function () {
         //Get numeric values from ID of timeblock
-        var timefromID = $(this).attr("id").match(/-?\d+\.?\d*/)[0];
+        //If statement used to check for AM and PM time
+        if ($(this).attr("id").includes("PM")){
+            //If PM found on string, add 12 to time.
+            var timefromID = Number($(this).attr("id").match(/-?\d+\.?\d*/)[0]) + 12;
+        }
+        else {
+            var timefromID = $(this).attr("id").match(/-?\d+\.?\d*/)[0];
+        }
+        console.log(timefromID);
+
         //Conditional class formatting based on current time
         if (timefromID < currentTime) {
             $(this).removeClass("future");
             $(this).removeClass("present");
             $(this).addClass("past");
         }
-        else if (timefromID === currentTime) {
+        else if (timefromID == currentTime) {
             $(this).removeClass("past");
             $(this).removeClass("future");
             $(this).addClass("present");
