@@ -1,0 +1,9 @@
+/* Jumbotron styling */
+.jumbotron {
+    text-align: center;
+    height: 225px;
+    padding-top: 25px;
+    background-color: white;
+    color: black;
+    border-bottom: 10px solid black;
+  }
