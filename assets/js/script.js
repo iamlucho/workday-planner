@@ -31,8 +31,8 @@ function timeTracker() {
     $(".time-block").each(function () {
         //Get numeric values from ID of timeblock
         //If statement used to check for AM and PM time
-        if ($(this).attr("id").includes("PM")){
-            //If PM found on string, add 12 to time.
+        if ($(this).attr("id").includes("PM") && Number($(this).attr("id").match(/-?\d+\.?\d*/)[0]) < 12){
+            //If PM found on string, and is not 12PM, add 12 to time.
             var timefromID = Number($(this).attr("id").match(/-?\d+\.?\d*/)[0]) + 12;
         }
         else {
